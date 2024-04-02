@@ -1,0 +1,243 @@
+﻿
+
+<header class="site-header section-padding-img site-header-image">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-10 col-12 header-info">
+                <h1>
+                    <span class="d-block text-primary">Say hello to us</span>
+                    <span class="d-block text-dark">love to hear you</span>
+                </h1>
+            </div>
+        </div>
+    </div>
+
+    <img src="~/images/header/positive-european-woman-has-break-after-work.jpg" class="header-image img-fluid" alt="">
+</header>
+
+<section class="contact section-padding">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-lg-6 col-12">
+                <h2 class="mb-4">Let's <span>begin</span></h2>
+
+                <form class="contact-form me-lg-5 pe-lg-3" role="form" method="POST" asp-action="SendRequirement" asp-controller="Contact" >
+
+                    <div class="form-floating">
+                        <input type="text" name="name" id="name" class="form-control" placeholder="Full name" required>
+
+                        <label for="name">Full name</label>
+                    </div>
+
+                    <div class="form-floating my-4">
+                        <input type="email" name="email" id="email" class="form-control" placeholder="Email address" required>
+
+                        <label for="email">Email address</label>
+                    </div>
+                                
+                    <div class="form-floating my-4">
+                        <input type="subject" name="subject" id="subject"class="form-control" placeholder="Subject" required>
+
+                        <label for="subject">Subject</label>
+                    </div>
+
+                    <div class="form-floating mb-4">
+                        <textarea id="message" name="message" class="form-control" placeholder="Leave a comment here" required style="height: 160px"></textarea>
+
+                        <label for="message">Tell us about your requirements</label>
+                    </div>
+
+                    <div class="col-lg-5 col-6">
+                        <button type="submit" class="form-control">Send</button>
+                    </div>
+                </form>
+                
+                <div id="overlay" class="overlay"></div>
+                
+                <div id="popupModal" class="popup-modal">
+                    <div class="popup-content">
+                        <div class="popup-header">
+                            <h5 class="popup-title">Success!</h5>
+                            <button type="button" id="closeBtn" class="close-btn">×</button>
+                        </div>
+                        <div class="popup-body">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="currentColor" class="bi bi-check-circle text-success mb-3" viewBox="0 0 16 16">
+                                <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0ZM6.5 11.793l-2.146-2.147a.5.5 0 1 1 .708-.708l1.5 1.5a.5.5 0 0 0 .708 0l3.5-3.5a.5.5 0 1 1 .708.708l-4 4a.5.5 0 0 1-.708 0Z" />
+                            </svg>
+                            <p>Your message has been successfully sent!</p>
+                            <p>We will response you</p>
+                            <p>Thanks for your response!</p>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        var overlay = document.getElementById("overlay");
+                        var popupModal = document.getElementById("popupModal");
+
+                        function showPopup() {
+                            overlay.style.display = "block";
+                            popupModal.style.display = "block";
+
+                            setTimeout(function () {
+                                overlay.style.display = "none";
+                                popupModal.style.display = "none";
+                            }, 3000); // 3 seconds
+                        }
+
+                        // Sự kiện khi submit form
+                        document.querySelector(".contact-form").addEventListener("submit", function (event) {
+                            event.preventDefault(); // Ngăn chặn hành động mặc định của form
+                            var formData = new FormData(this); // Lấy dữ liệu form
+
+                            // Địa chỉ của controller và action
+                            var controller = "/Contact"; // Thay đổi tên controller tại đây
+                            var action = "SendRequirement"; // Thay đổi tên action tại đây
+                            var url = controller + "/" + action;
+
+                            // Gửi yêu cầu AJAX đến controller và action đã chỉ định
+                            var xhr = new XMLHttpRequest();
+                            xhr.open("POST", url);
+                            xhr.onload = function () {
+                                if (xhr.status === 200) {
+                                    setTimeout(showPopup, 1000);
+                                    // Hiển thị thông báo khi gửi thành công
+                                }
+                            };
+                            xhr.send(formData);
+                            
+                        });
+                    });
+
+
+
+                </script>
+                
+            </div>
+
+            <div class="col-lg-6 col-12 mt-5 ms-auto">
+                <div class="row">
+                    <div class="col-6 border-end contact-info">
+                        <h6 class="mb-3">New Business</h6>
+
+                        <a href="mailto:hello@company.com" class="custom-link">
+                            Gau Company
+                            <i class="bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+
+                    <div class="col-6 contact-info">
+                        <h6 class="mb-3">Main Studio</h6>
+
+                        <a href="mailto:studio@company.com" class="custom-link">
+                            studio@company.com
+                            <i class="bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+
+                    <div class="col-6 border-top border-end contact-info">
+                        <h6 class="mb-3">Our Office</h6>
+
+                        <p class="text-muted">Viet Nam, Da Nang, Ngu Hanh Son</p>
+                    </div>
+
+                    <div class="col-6 border-top contact-info">
+                        <h6 class="mb-3">Our Socials</h6>
+
+                        <ul class="social-icon">
+
+                            <li><a href="#" class="social-icon-link bi-messenger"></a></li>
+
+                            <li><a href="#" class="social-icon-link bi-youtube"></a></li>
+
+                            <li><a href="#" class="social-icon-link bi-instagram"></a></li>
+
+                            <li><a href="#" class="social-icon-link bi-whatsapp"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<style>
+    .form-floating label{
+        color: black;
+    }
+
+    .popup-modal {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 0.8); /* Màu nền mờ */
+        border: 2px solid #007bff;
+        border-radius: 10px;
+        z-index: 1000;
+        padding: 30px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        width: 500px; /* Giảm chiều rộng của modal */
+        max-width: 90%;
+        max-height: 80%; /* Giảm chiều cao của modal */
+        overflow-y: auto; /* Cho phép cuộn khi nội dung quá dài */
+    }
+
+    .popup-content {
+        text-align: center;
+    }
+
+    .popup-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .popup-title {
+        margin: 0;
+        color: #007bff;
+        font-size: 24px;
+    }
+
+    .close-btn {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        font-size: 20px;
+        color: #007bff;
+    }
+
+        .close-btn:hover {
+            color: #0056b3;
+        }
+
+    .popup-body {
+        margin-bottom: 20px;
+    }
+
+    .popup-body p {
+        color: orange; /* Màu cho các đoạn văn bản trong modal */
+    }
+
+    .text-success {
+        color: #28a745;
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Màu nền mờ và độ mờ */
+        z-index: 999;
+        display: none; /* Ban đầu ẩn overlay */
+    }
+
+    
+
+</style>

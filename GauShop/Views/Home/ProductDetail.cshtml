@@ -1,0 +1,377 @@
+﻿
+    @model BusinessObject.HomeViewModel.HomeModel;
+
+    @{
+        var foundProduct = Model.product;
+    }
+
+    <header class="site-header section-padding d-flex justify-content-center align-items-center">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-10 col-12">
+                    <h1>
+                        <span class="d-block text-primary">We provide you</span>
+                        <span class="d-block text-dark">Fashionable Stuffs</span>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="product-detail section-padding">
+    
+        <div class="container">
+            <div class="row">
+                @if (foundProduct != null)
+                {
+                    <div class="col-lg-6 col-12">
+                        <div class="product-thumb">
+                            <img src="~/@foundProduct.image" class="img-fluid product-image" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-12">
+                        <div class="product-info d-flex">
+                        <div>
+                            <h2 class="product-title mb-0">@foundProduct.name</h2>
+
+                            <p class="product-p">@foundProduct.type</p>
+                        </div>
+
+                        <small class="product-price text-muted ms-auto mt-auto mb-5">@foundProduct.price$</small>
+                    </div>
+
+                    <div class="product-description">
+
+                        <strong class="d-block mt-4 mb-2">Description</strong>
+
+                        <p class="lead mb-5" style="color: black;">@foundProduct.description</p>
+                    </div>
+                    <div class="product-cart-thumb row">
+                        <form class="addtocart-form" method="POST" asp-action="AddToCart" asp-controller="Cart">
+                            <div class="col-lg-6 col-12">
+                                <div class="mb-3" style="display: flex;">
+                                    <label for="sizeButtons" class="form-label" style="margin-right: 15px;">Size: </label>
+                                    <div class="btn-group" role="group" aria-label="Size" id="sizeButtons">
+                                        <input type="radio" class="btn-check" name="size" id="sizeX" autocomplete="off" value="X">
+                                        <label class="btn btn-secondary btn-size" for="sizeX">X</label>
+
+                                        <input type="radio" class="btn-check" name="size" id="sizeXXL" autocomplete="off" value="XXL">
+                                        <label class="btn btn-secondary btn-size" for="sizeXXL">XXL</label>
+
+                                        <input type="radio" class="btn-check" name="size" id="sizeXXXL" autocomplete="off" value="XXXL">
+                                        <label class="btn btn-secondary btn-size" for="sizeXXXL">XXXL</label>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <div style="display: flex; align-items: center;">
+                                        <label for="colorSelect" class="form-label me-2">Color:</label>
+                                        <select class="form-select custom-select" id="colorSelect" name="color">
+                                            <option selected>Black</option>
+                                            <option value="red">Red</option>
+                                            <option value="blue">Blue</option>
+                                            <option value="green">Green</option>
+                                            <!-- Thêm các tùy chọn màu khác nếu cần -->
+                                        </select>
+                                    </div>
+
+                                    <div class="input-group mt-3">
+                                        <label for="colorSelect" class="form-label me-2">Quantity: </label>
+                                        <div class="input-group-prepend">
+                                            <button class="btn btn-outline-black decrease" type="button" onclick="decreaseQuantity()">&minus;</button>
+                                        </div>
+                                        <input type="text" class="form-control text-center quantity-amount" name="productQuantity" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-black increase" type="button" onclick="increaseQuantity()">&plus;</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-lg-6 col-12 mt-4 mt-lg-0">
+                            
+                                <input type="hidden" name="id" value="@foundProduct.id" />
+                                <button type="submit" class="btn custom-btn cart-btn">Add to Cart</button>
+
+                                <div id="popupModal" class="popup-modal">
+                                    <div class="popup-content">
+                                        <div class="popup-header">
+                                            <h5 class="popup-title">Success!</h5>
+                                            <button type="button" id="closeBtn" class="close-btn">×</button>
+                                        </div>
+                                        <div class="popup-body">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="currentColor" class="bi bi-check-circle text-success mb-3" viewBox="0 0 16 16">
+                                                <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0ZM6.5 11.793l-2.146-2.147a.5.5 0 1 1 .708-.708l1.5 1.5a.5.5 0 0 0 .708 0l3.5-3.5a.5.5 0 1 1 .708.708l-4 4a.5.5 0 0 1-.708 0Z" />
+                                            </svg>
+                                            <p>You added to cart successfully!</p>
+                                            <p>Please check your cart</p>
+                                            <p>Gau Shopping now!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <p>
+                            <a href="#" class="product-additional-link">Details</a>
+
+                            <a href="#" class="product-additional-link">Delivery and Payment</a>
+                        </p>
+                    </div>
+
+                </div>
+                }
+            </div>
+        </div>
+    <div id="overlay" class="overlay"></div>
+    </section>
+
+    <section class="related-product section-padding border-top">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-12">
+                    <h3 class="mb-5">You might also like</h3>
+                </div>
+
+                <div class="col-lg-4 col-12 mb-3">
+                    <div class="product-thumb">
+                        <a href="product-detail.html">
+                            <img src="~/images/product/evan-mcdougall-qnh1odlqOmk-unsplash.jpeg" class="img-fluid product-image" alt="">
+                        </a>
+
+                        <div class="product-top d-flex">
+                            <span class="product-alert me-auto">New arrival</span>
+
+                            <a href="#" class="bi-heart-fill product-icon"></a>
+                        </div>
+
+                        <div class="product-info d-flex">
+                            <div>
+                                <h5 class="product-title mb-0">
+                                    <a href="product-detail.html" class="product-title-link">Tree pot</a>
+                                </h5>
+
+                                <p class="product-p">Original package design from house</p>
+                            </div>
+
+                            <small class="product-price text-muted ms-auto mt-auto mb-5">$25</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-12 mb-3">
+                    <div class="product-thumb">
+                        <a href="product-detail.html">
+                            <img src="~/images/product/jordan-nix-CkCUvwMXAac-unsplash.jpeg" class="img-fluid product-image" alt="">
+                        </a>
+
+                        <div class="product-top d-flex">
+                            <span class="product-alert">Low Price</span>
+
+                            <a href="#" class="bi-heart-fill product-icon ms-auto"></a>
+                        </div>
+
+                        <div class="product-info d-flex">
+                            <div>
+                                <h5 class="product-title mb-0">
+                                    <a href="product-detail.html" class="product-title-link">Fashion set</a>
+                                </h5>
+
+                                <p class="product-p">Costume package</p>
+                            </div>
+
+                            <small class="product-price text-muted ms-auto mt-auto mb-5">$35</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-12">
+                    <div class="product-thumb">
+                        <a href="product-detail.html">
+                            <img src="~/images/product/nature-zen-3Dn1BZZv3m8-unsplash.jpeg" class="img-fluid product-image" alt="">
+                        </a>
+
+                        <div class="product-top d-flex">
+                            <a href="#" class="bi-heart-fill product-icon ms-auto"></a>
+                        </div>
+
+                        <div class="product-info d-flex">
+                            <div>
+                                <h5 class="product-title mb-0">
+                                    <a href="product-detail.html" class="product-title-link">Juice Drinks</a>
+                                </h5>
+
+                                <p class="product-p">Nature made another world</p>
+                            </div>
+
+                            <small class="product-price text-muted ms-auto mt-auto mb-5">$45</small>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var overlay = document.getElementById("overlay");
+        var popupModal = document.getElementById("popupModal");
+
+        function showPopup() {
+            overlay.style.display = "block";
+            popupModal.style.display = "block";
+
+            setTimeout(function () {
+                overlay.style.display = "none";
+                popupModal.style.display = "none";
+            }, 1500); // 3 seconds
+        }
+
+        // Sự kiện khi submit form
+        document.querySelector(".addtocart-form").addEventListener("submit", function (event) {
+            event.preventDefault(); // Ngăn chặn hành động mặc định của form
+
+            var formData = new FormData(this); // Lấy dữ liệu form
+
+            // Địa chỉ của controller và action
+            var controller = "/Cart"; // Thay đổi tên controller tại đây
+            var action = "AddToCart"; // Thay đổi tên action tại đây
+            var url = controller + "/" + action;
+
+            // Gửi yêu cầu AJAX đến controller và action đã chỉ định
+            var xhr = new XMLHttpRequest();
+            
+            xhr.open("POST", url);
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    showPopup();
+                    // Hiển thị thông báo khi gửi thành công
+                }
+            };
+            xhr.send(formData);
+            console.log("da se data");
+        });
+    });
+
+    function decreaseQuantity() {
+        var input = document.querySelector(".quantity-amount");
+        if (input.value > 1) {
+            input.value--;
+        }
+    }
+
+    function increaseQuantity() {
+        var input = document.querySelector(".quantity-amount");
+        input.value++;
+    }
+
+</script>
+
+<style>
+    .form-label {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .btn-size {
+        color: white;
+        font-weight: bold;
+        border: 1px black;
+        background: orange;
+    }
+
+    /* CSS để tùy chỉnh dropdown */
+    .custom-select {
+        appearance: none; /* Loại bỏ giao diện mặc định */
+        background-color: transparent; /* Màu nền trong suốt */
+        border: 1px solid #ced4da; /* Đường viền */
+        border-radius: .25rem; /* Góc bo */
+        padding: .375rem .75rem; /* Kích thước lề */
+        font-size: 1rem; /* Kích thước chữ */
+        line-height: 1.5; /* Độ cao dòng */
+    }
+
+        /* CSS cho các tùy chọn */
+        .custom-select option {
+            color: black; /* Màu chữ */
+            background-color: #f8f9fa; /* Màu nền */
+            border-bottom: 1px solid #ced4da; /* Đường viền dưới */
+        }
+        .form-floating label {
+            color: black;
+        }
+
+        .popup-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8); /* Màu nền mờ */
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            z-index: 1000;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 500px; /* Giảm chiều rộng của modal */
+            max-width: 90%;
+            max-height: 80%; /* Giảm chiều cao của modal */
+            overflow-y: auto; /* Cho phép cuộn khi nội dung quá dài */
+        }
+
+        .popup-content {
+            text-align: center;
+        }
+
+        .popup-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .popup-title {
+            margin: 0;
+            color: #007bff;
+            font-size: 24px;
+        }
+
+        .close-btn {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            color: #007bff;
+        }
+
+            .close-btn:hover {
+                color: #0056b3;
+            }
+
+        .popup-body {
+            margin-bottom: 20px;
+        }
+
+            .popup-body p {
+                color: orange; /* Màu cho các đoạn văn bản trong modal */
+            }
+
+        .text-success {
+            color: #28a745;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Màu nền mờ và độ mờ */
+            z-index: 999;
+            display: none; /* Ban đầu ẩn overlay */
+        }
+
+    </style>

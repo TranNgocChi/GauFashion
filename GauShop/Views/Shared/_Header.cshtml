@@ -1,0 +1,170 @@
+﻿@model BusinessObject.HomeViewModel.HomeModel;
+
+<!-- Header Start -->
+<section class="preloader">
+    <div class="spinner">
+        <span class="sk-inner-circle"></span>
+    </div>
+</section>
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <a class="navbar-brand" href="/">
+            <strong><span>Gau</span> Fashion</strong>
+        </a>
+
+        <div class="d-lg-none">
+            <a href="sign-in.html" class="bi-person custom-icon me-3"></a>
+            <a href="product-detail.html" class="bi-bag custom-icon"></a>
+        </div>
+        
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="Index" asp-controller="Home">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="ViewStory" asp-controller="Story">Story</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="ViewProducts" asp-controller="Product">Products</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="ViewFaqs" asp-controller="FAQs">FAQs</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="ViewContact" asp-controller="Contact">Contact</a>
+                </li>
+            </ul>
+
+            <div class="d-none d-lg-block">
+                @if (Model != null)
+                {
+                    @if (Model.sessionId != null)
+                    {
+                        <a asp-controller="Cart" asp-action="ViewCart" class="bi-bag custom-icon" style="margin-right: 30px;font-size:22px;">
+                            <span style="color: white;"class="badge">@Model.cart.cartitems.Count</span>
+                        </a>
+                        <a class="btn btn-dark dropdown-toggle" >
+                            @Model.sessionName
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Order</a></li>
+                            <li><a class="dropdown-item" asp-action="Logout" asp-controller="SignIn">Logout</a></li>
+
+                            <!-- Thêm các mục khác tại đây -->
+                        </ul>
+
+                    }
+                    else
+                    {
+                        <a asp-controller="SignUp" asp-action="ViewSignUp" style="margin-right: 20px;" class="btn btn-dark">Sign Up</a>
+                        <a asp-controller="SignIn" asp-action="ViewSignIn" class="btn btn-orange" >Sign In</a>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var dropdownToggle = document.querySelector(".dropdown-toggle");
+            var dropdownMenu = document.querySelector(".dropdown-menu");
+
+            dropdownToggle.addEventListener("mouseenter", function () {
+                dropdownMenu.style.display = "block";
+            });
+
+            dropdownMenu.addEventListener("mouseleave", function () {
+                dropdownMenu.style.display = "none";
+            });
+        });
+
+        var navLinks = document.querySelectorAll(".navbar-nav a");
+        var currentUrl = window.location.href;
+        
+        navLinks.forEach(function (navLink) {
+            if (navLink.href === currentUrl) {
+                navLink.classList.add("active");
+            }
+
+        })
+    </script>
+</nav>
+<!-- Header End -->
+<style>
+    .badge {
+        position: absolute;
+        top: 17px; /* Điều chỉnh vị trí đứng trên đầu giỏ hàng */
+        right: 177px; /* Điều chỉnh vị trí so với biểu tượng giỏ hàng */
+        background-color: red;
+        color: white;
+        border-radius: 50%;
+        padding: 5px;
+        font-size: 12px;
+    }
+    .dropdown-toggle:hover + .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        background-color: grey;
+        width: 10rem;
+        padding: .5rem 0;
+        margin: .125rem 0 0;
+        font-size: 1rem;
+        color: #212529;
+        text-align: left;
+        list-style: none;
+        border: 1px solid rgba(0,0,0,.15);
+        border-radius: .25rem;
+    }
+
+    .dropdown-item {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        color: black;
+        font-weight: 600;
+        border-radius: 5px;
+        
+    }
+
+        .dropdown-item:hover {
+            background: #FF4400;
+        }
+
+        .dropdown-item:active {
+            color: grey;
+        }
+
+    .btn-orange {
+        background: #FF4400;
+        color: white;
+    }
+
+    .btn-dark {
+        color: white;
+    }
+
+        .btn-dark:hover {
+            color: #FF4400;
+        }
+
+</style>
+
+<!-- JAVASCRIPT FILES -->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/Headroom.js"></script>
+<script src="js/jQuery.headroom.js"></script>
+<script src="js/slick.min.js"></script>
+<script src="js/custom.js"></script>

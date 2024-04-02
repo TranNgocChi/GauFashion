@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MailKit" Version="4.3.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="7.0.16" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="7.0.16" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="7.0.16" />
+    <PackageReference Include="MimeKit" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessObject\BusinessObject.csproj" />
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
+  </ItemGroup>
+
+</Project>

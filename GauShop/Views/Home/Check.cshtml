@@ -1,0 +1,74 @@
+﻿<section class="contact section-padding">
+
+    <!DOCTYPE html>
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <title>Google Maps JavaScript API</title>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBd8tfN60Xy7z8l4ACz6eDJDyk09qrnlGo" type="text/javascript"></script>
+        <script language="javascript">
+            var geocoder, location1, location2;
+
+            function initialize() {
+                geocoder = new google.maps.Geocoder();
+            }
+
+            function showLocation() {
+                var address1 = document.forms[0].address1.value;
+                var address2 = document.forms[0].address2.value;
+
+                geocoder.geocode({ 'address': address1 }, function (results1, status1) {
+                    if (status1 == google.maps.GeocoderStatus.OK) {
+                        location1 = {
+                            lat: results1[0].geometry.location.lat(),
+                            lon: results1[0].geometry.location.lng(),
+                            address: results1[0].formatted_address
+                        };
+
+                        geocoder.geocode({ 'address': address2 }, function (results2, status2) {
+                            if (status2 == google.maps.GeocoderStatus.OK) {
+                                location2 = {
+                                    lat: results2[0].geometry.location.lat(),
+                                    lon: results2[0].geometry.location.lng(),
+                                    address: results2[0].formatted_address
+                                };
+
+                                calculateDistance();
+                            } else {
+                                alert("Sorry, we were unable to geocode the second address: " + status2);
+                            }
+                        });
+                    } else {
+                        alert("Sorry, we were unable to geocode the first address: " + status1);
+                    }
+                });
+            }
+
+            function calculateDistance() {
+                try {
+                    var latlng1 = new google.maps.LatLng(location1.lat, location1.lon);
+                    var latlng2 = new google.maps.LatLng(location2.lat, location2.lon);
+                    var distance = google.maps.geometry.spherical.computeDistanceBetween(latlng1, latlng2) / 1000; // in kilometers
+
+                    document.getElementById("results").innerHTML = "<strong>Địa chỉ 1: </strong>" + location1.address + "<br /><strong>Địa chỉ 2: </strong>" + location2.address + "<br /><strong>Khoảng cách: </strong>" + distance.toFixed(1) + " km";
+                } catch (error) {
+                    alert(error);
+                }
+            }
+        </script>
+    </head>
+
+    <body onload="initialize()">
+        <form action="#" onsubmit="showLocation(); return false;">
+            <p>
+                <input type="text" name="address1" value="Address 1" class="address_input" size="40" />
+                <input type="text" name="address2" value="Address 2" class="address_input" size="40" />
+                <input type="submit" name="find" value="Search" />
+            </p>
+        </form>
+        <p id="results"></p>
+    </body>
+</html>
+
+</section>
+

@@ -1,0 +1,341 @@
+﻿@model BusinessObject.HomeViewModel.HomeModel;
+
+
+<header class="site-header section-padding-img site-header-image">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-10 col-12 header-info">
+                <h1>
+                    <span class="d-block text-primary">Say hello to us</span>
+                    <span class="d-block text-dark">love to hear you</span>
+                </h1>
+            </div>
+        </div>
+    </div>
+
+    <img src="~/images/header/positive-european-woman-has-break-after-work.jpg" class="header-image img-fluid" alt="">
+</header>
+
+<section class="contact section-padding order">
+
+	<div class="untree_co-section ">
+		<div class="container">
+			<form method="POST" asp-action="HandleOrder" asp-controller="Order">
+			<div class="row">
+				<div class="col-md-6 mb-5 mb-md-0">
+					<h2 class="h3 mb-3 text-black" style="font-weight: bold">Billing Details</h2>
+					<div class="p-3 p-lg-5 border bg-white">
+						<div class="form-group">
+							<label for="c_country" class="text-black">Country <span class="text-danger">*</span></label>
+							<select id="c_country" name="c_country" class="form-control">
+								<option selected>VietNam</option>
+							</select>
+						</div>
+						<div class="form-group row">
+							<div class="col-md-12">
+								<label for="c_city" class="text-black">City <span class="text-danger">*</span></label>
+
+								<select id="c_city" name="c_city" class="form-control" onchange="SelectedCity()" required>
+									<option value="00" selected>Select a city</option>
+									@foreach (var province in Model.vNMap.provinces)
+									{
+										<option name="@province.Name" value="@province.Code">@province.Name</option>
+									}
+								</select>
+							</div>
+							
+							<div class="col-md-12">
+								<label for="c_district" class="text-black">District <span class="text-danger">*</span></label>
+									<select id="c_district" name="c_district" class="form-control" onchange="SelectedDistrict()" required>
+									<option name="" value="000">Select a district</option>
+								</select>
+							</div>
+							<div class="col-md-12">
+								<label for="c_town" class="text-black">Town <span class="text-danger">*</span></label>
+									<select id="c_town" name="c_town" class="form-control" onchange="SelectedTown()" required>
+									<option name="" value="0000">Select a town</option>
+	
+								</select>
+							</div>
+							<div class="col-md-12">
+								<label for="c_address" class="text-black">Address <span class="text-danger">*</span></label>
+									<input type="text" class="form-control" id="c_address" name="c_address" placeholder="Detail address" required>
+							</div>
+							<div class="col-md-12">
+								<label for="c_address" class="text-black">Phone <span class="text-danger">*</span></label>
+									<input type="text" class="form-control" id="c_phone" name="c_phone" placeholder="Phone Number" required>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="c_order_notes" class="text-black">Order Notes</label>
+							<textarea name="c_order_notes" id="c_order_notes" cols="30" rows="5" class="form-control" placeholder="Write your notes here..."></textarea>
+						</div>
+
+					</div>
+
+					<div class="p-3 p-lg-5 border bg-white">
+						<h2 class="h3 mb-3 text-black" style="font-weight: bold;">Delivery Address</h2>
+						<select id="" name="" class="form-control" style="cursor: pointer">
+							<option value="payment_delivery" selected>Viet Nam - Quang Binh - Quang Ninh -
+								Hien Ninh - Truong Duc</option>
+							<option value="payment_online">Payment online VnPay</option>
+						</select>
+					</div>
+					
+				</div>
+				
+				<div class="col-md-6">		
+
+					<div class="row mb-5">
+						<div class="col-md-12">
+							<h2 class="h3 mb-3 text-black" style="font-weight: bold;">Coupon Code</h2>
+							<div class="p-3 p-lg-5 border bg-white">
+
+								<label for="c_code" class="text-black mb-3">Enter your coupon code if you have one</label>
+								<div class="input-group w-75 couponcode-wrap">
+									<input type="text" class="form-control me-2" id="c_code" placeholder="Coupon Code" aria-label="Coupon Code" aria-describedby="button-addon2">
+									<div class="input-group-append">
+										<button class="btn btn-black btn-sm" type="button" id="button-addon2">Apply</button>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+					<div class="row mb-5">
+						<div class="col-md-12">
+							<h2 class="h3 mb-3 text-black" style="font-weight: bold;">Your Order</h2>
+							<div class="p-3 p-lg-5 border bg-white">
+								<table class="table site-block-order-table mb-5">
+									<thead>
+									<th>Product</th>
+									<th>Total</th>
+									</thead>
+									<tbody>
+										@foreach(var item in Model.cartOrder.cartitems){
+										<tr>
+											<td>
+												<strong>@item.product.name</strong>
+												<span style="font-size: 14px;color: grey;">@item.size-@item.color</span>
+												<strong class="mx-2">x</strong> @item.quantity
+											</td>
+											<td>$@(item.product.price*item.quantity)</td>
+										</tr>
+										}
+										<tr>
+											<td class="text-black font-weight-bold">
+												<strong style="color: blue;">Shipping</strong>
+											</td>
+											<td class="text-black shipping">$0</td>
+										</tr>
+										<tr>
+											<td class="text-black font-weight-bold"><strong style="color: #FF4400;">Cart Subtotal</strong></td>
+											<td class="text-black cart-total">$@Model.cartOrder.total</td>
+										</tr>
+										<tr style="background: grey;">
+											<td class="text-black font-weight-bold"><strong style="color: red;">Order Total</strong></td>
+											<td class="text-black font-weight-bold total"><strong>$@Model.cartOrder.total</strong></td>
+										</tr>
+										
+									</tbody>
+								</table>
+									
+									<input type="hidden" id="totalPriceInput" name="totalPrice" value="" />
+									<input type="hidden" id="shipping" name="shipping" value="" />
+								<div class="form-group">
+									<button class="btn btn-black btn-lg py-3 btn-block">Place Order</button>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+					<div class="row mb-5">
+						<h2 class="h3 mb-3 text-black" style="font-weight: bold;">Payment Methods</h2>
+						<select id="payment_method" name="payment_method" class="form-control" style="cursor: pointer">
+							<option value="payment_delivery" selected>Payment on delivery</option>
+							<option value="payment_online">Payment online VnPay</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			</form>
+			<!-- </form> -->
+		</div>
+	</div>
+</section>
+<input type="hidden" id="adminAddress" value="@Model.adminAddress.country, @Model.adminAddress.city,
+		@Model.adminAddress.district, @Model.adminAddress.town" />
+
+<script>
+	
+
+	function SelectedCity() {
+		var selectedCity = document.getElementById("c_city").value;
+		$.ajax({
+			url: '/get-selectedCity',
+			type: 'POST',
+			data: { selectedCity: selectedCity },
+			success: function (response) {
+				var districts = response.districtFounds;
+				document.getElementById("c_district").innerHTML = "";
+				
+				for (var i = 0; i < districts.length; i++) {
+					var option = document.createElement("option");
+					option.value = districts[i].code;
+					option.text = districts[i].name;
+
+					// Thêm option vào thẻ select
+					document.getElementById("c_district").appendChild(option);
+				}
+				if (document.getElementById("c_city").value == '00') {
+					$('.shipping').text('$' + 0);
+					document.getElementById("c_town").innerHTML = "";
+					var option = document.createElement("option");
+					option.value = "0000";
+					option.text = "Select a town";
+
+					// Thêm option vào thẻ select
+					document.getElementById("c_town").appendChild(option);
+				} else {
+					SelectedDistrict();
+				}
+				
+				console.log('Load theo thanh pho thanh cong.');
+			},
+			error: function (xhr, status, error) {
+				console.error('Đã xảy ra lỗi: ', error);
+			}
+		});
+	}
+	
+	function SelectedDistrict() {
+		var selectedDistrict = document.getElementById("c_district").value;
+		$.ajax({
+			url: '/get-selectedDistrict',
+			type: 'POST',
+			data: { selectedDistrict: selectedDistrict },
+			success: function (response) {
+				var towns = response.wardFounds;
+				document.getElementById("c_town").innerHTML = "";
+
+				for (var i = 0; i < towns.length; i++) {
+					var option = document.createElement("option");
+					option.value = towns[i].code;
+					option.text = towns[i].name;
+
+					// Thêm option vào thẻ select
+					document.getElementById("c_town").appendChild(option);
+				}
+				SelectedTown();
+				console.log('Danh sách sản phẩm được cập nhật thành công.');
+			},
+			error: function (xhr, status, error) {
+				console.error('Đã xảy ra lỗi: ', error);
+			}
+		});
+	}
+
+	function SelectedTown() {
+		calculateDistance();
+	}
+
+	function calculateDistance() {
+		var origin = document.getElementById("adminAddress").value;
+		var destination = document.getElementById("c_country").selectedOptions[0].text + ", " +
+			document.getElementById("c_city").selectedOptions[0].text + ", " +
+			document.getElementById("c_district").selectedOptions[0].text + ", " +
+			document.getElementById("c_town").selectedOptions[0].text;
+		
+		// Call OpenStreetMap Nominatim API to geocode the addresses
+		$.getJSON('https://nominatim.openstreetmap.org/search?format=json&q=' + origin, function (data1) {
+			if (data1.length > 0) {
+				var originLat = data1[0].lat;
+				var originLon = data1[0].lon;
+
+				$.getJSON('https://nominatim.openstreetmap.org/search?format=json&q=' + destination, function (data2) {
+					if (data2.length > 0) {
+						var destLat = data2[0].lat;
+						var destLon = data2[0].lon;
+
+						// Calculate distance between two points using Haversine formula
+						var distance = calculateHaversine(originLat, originLon, destLat, destLon);
+						console.log(distance);
+						var shipping = 0;
+						if (distance < 200) {
+							shipping = 10;
+						} else if (distance >= 200 && distance < 400) {
+							shipping = 20;
+						} else if (distance >= 400 && distance < 600) {
+							shipping = 30;
+						} else if (distance >= 600 && distance < 800) {
+							shipping = 40;
+						} else if (distance >= 800 && distance < 1000) {
+							shipping = 50
+						} else {
+							shipping = 70;
+						}
+						$('.shipping').text('$' + shipping);
+
+						var cartTotal = $(".text-black.cart-total").text().replace("$", "");
+						var total = shipping + parseFloat(cartTotal);
+
+						$('.total strong').text('$' + total);
+						document.getElementById("totalPriceInput").value = total;
+						document.getElementById("shipping").value = shipping;
+					} else {
+
+					}
+				});
+			} else {
+				alert('Origin address not found');
+			}
+		});
+	}
+
+	function calculateHaversine(lat1, lon1, lat2, lon2) {
+		var R = 6371; // Radius of the earth in km
+		var dLat = deg2rad(lat2 - lat1);
+		var dLon = deg2rad(lon2 - lon1);
+		var a =
+			Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+			Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+			Math.sin(dLon / 2) * Math.sin(dLon / 2);
+		var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+		var d = R * c; // Distance in km
+		return d;
+	}
+
+	function deg2rad(deg) {
+		return deg * (Math.PI / 180)
+	}
+
+</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style>
+	.order{
+		background: #eff2f1;
+	}
+
+	.btn-black{
+		background: black;
+		color: white;
+		padding: 15px 24px;
+		border: none;
+		border-radius: 20px;
+		text-align: center;
+
+	}
+
+	.btn-black:hover{
+		opacity: 0.8;
+		color: white;
+	}
+
+
+</style>

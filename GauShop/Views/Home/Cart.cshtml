@@ -1,0 +1,403 @@
+﻿@model BusinessObject.HomeViewModel.HomeModel;
+
+<header class="site-header section-padding-img site-header-image" style="background-color: #3b5d50;">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-6 col-12 header-info">
+                <h1>
+                    <span class="d-block text-primary" style="display: flex;">
+                        Choose all of your favorite items and
+                    </span>
+                    <span class="d-block text-dark">Order Now!</span>
+                </h1>
+            </div>
+        </div>
+    </div>
+    <img src="~/images/header/businesspeople-meeting-office-working.jpg" class="header-image img-fluid" alt="">
+</header>
+@if (Model.cartItems.Count > 0){
+<section class="cart section-padding">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="table-responsive">
+                    <!-- Sử dụng lớp responsive của Bootstrap -->
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Image</th> <!-- Sử dụng scope="col" cho tiêu đề cột -->
+                                <th scope="col">Product</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Total</th>
+                                <th scope="col">Remove</th>
+                                <th scope="col">Choose</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach(var ct in Model.cartItems){
+                            <tr>
+                                <td class="product-thumbnail">
+                                    <img src="~/@ct.product.image" alt="Image" class="img-fluid">
+                                </td>
+                                <td class="product-name">
+                                    <h2 class="h5 text-black" style="display: block;">
+                                        <strong style="display: block;">@ct.product.name</strong>
+                                        <p style="margin-top:5px; color: grey; text-align:center;">
+                                            @ct.size - @ct.color
+                                        </p>
+                                    </h2>
+                                </td>
+
+                                <td class="product-price">$@ct.product.price</td>
+                                <td class="product-quantity" style="display: flex; justify-content: center">
+                                    <div class="input-group-prepend">
+                                        <button id ="decreaseButton" class="btn btn-outline-black decrease" type="button" onclick="updateQuantity('@ct.product.id@ct.size@ct.color', 'decrease')">&minus;</button>
+                                    </div>
+                                        <input type="number" class="form-control text-center quantity-amount" style="max-width: 50px;" name="productQuantity" value="@ct.quantity" aria-describedby="button-addon1" data-product-id="@ct.product.id@ct.size@ct.color">
+                                    <div class="input-group-append">
+                                        <button id="increaseButton" class="btn btn-outline-black increase" type="button" onclick="updateQuantity('@ct.product.id@ct.size@ct.color', 'increase')">&plus;</button>
+                                    </div>
+                                </td>
+
+                                <td class="product-total" data-product-id="@ct.product.id@ct.size@ct.color"> $@(ct.product.price * ct.quantity)</td>
+                                <td class="product-remove">
+                                    <a href="/remove-item?idProduct=@ct.product.id&sizeProduct=@ct.size&colorProduct=@ct.color" class="btn btn-black btn-sm">
+                                        X
+                                    </a>
+                                </td>
+                                <td class="product-choose">
+                                    <input type="checkbox" onchange="updateSelectedItem('@ct.product.id@ct.size@ct.color')" id="@ct.product.id@ct.size@ct.color" @(ct.selected ? "checked" : "") />
+                                </td>
+                                
+                            </tr>
+                            <tr class="spacer-row"></tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+        
+            <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <label class="text-black h4" style="font-weight: bold;" for="coupon">Coupon</label>
+                        <p>Enter your coupon code if you have one.</p>
+                    </div>
+                    <div class="col-md-8 mb-3 mb-md-0">
+                        <input type="text" class="form-control py-3" id="coupon" placeholder="Coupon Code">
+                    </div>
+                    <div class="col-md-4">
+
+                        <button class="btn btn-black">Apply Coupon</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 pl-5">
+                <div class="row justify-content-end">
+                    <div class="col-md-7">
+                        <div class="row">
+                            <div class="col-md-12 text-right border-bottom mb-5">
+                                <h3 class="text-black h4 text-uppercase">Cart Totals</h3>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <span class="text-black">Subtotal</span>
+                            </div>
+                            <div class="col-md-6 text-right cart-total">
+                                <strong class="text-black">$@Model.cart.total</strong>
+                            </div>
+                        </div>
+                        <div class="row mb-5">
+                            <div class="col-md-6">
+                                <span class="text-black">Total</span>
+                            </div>
+                            <div class="col-md-6 text-right total">
+                                    <strong class="text-black">$@Model.cart.total</strong>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form method="POST" asp-action="ViewOrder" asp-controller="Order">
+                                    <button class="btn btn-black btn-lg py-3 btn-block">Proceed To Checkout</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+}else{
+    <h1>Your Cart don't have any items</h1>
+}
+<script>
+    function updateQuantity(productId, action) {
+        // Gửi danh sách selectedProducts qua controller thông qua Ajax
+        $.ajax({
+            url: '/update-quantity',
+            type: 'POST',
+            data: { productId: productId, action:action },
+            success: function (response) {
+                var productId = response.cartitem.product.id+response.cartitem.size+response.cartitem.color;
+                var quantity = response.cartitem.quantity;
+                var total = response.cartitem.product.price*response.cartitem.quantity;
+                var carttotal = response.cart.total;
+
+                $('.cart-total strong').text('$' + carttotal.toFixed(2));
+                $('.total strong').text('$' + carttotal.toFixed(2));
+                $('.product-total[data-product-id="' + productId + '"]').text('$' + total.toFixed(2));
+                $('.quantity-amount[data-product-id="' + productId + '"]').val(quantity);
+                console.log('Danh sách sản phẩm được cập nhật thành công.');
+            },
+            error: function (xhr, status, error) {
+                console.error('Đã xảy ra lỗi: ', error);
+            }
+        });
+    }
+
+
+    // Khởi tạo danh sách các sản phẩm được chọn
+    var selectedProducts = [];
+    var notSelectedProducts = [];
+
+    function updateSelectedItem(productId) {
+        // Kiểm tra trạng thái của ô checkbox
+        var checkbox = document.getElementById(productId);
+        var selected = checkbox.checked;
+
+        // Nếu ô checkbox được chọn, thêm productId vào danh sách
+        if (selected) {
+            var index = notSelectedProducts.indexOf(productId);
+            if (index !== -1) {
+                notSelectedProducts.splice(index, 1);
+            }
+            selectedProducts.push(productId);
+
+        } else {
+            var index = selectedProducts.indexOf(productId);
+            if (index !== -1) {
+                selectedProducts.splice(index, 1);
+            }
+            notSelectedProducts.push(productId);
+            sendNotSelectedProductsToController(notSelectedProducts);
+        }
+
+        // Gửi danh sách các sản phẩm được chọn qua controller
+        sendSelectedProductsToController(selectedProducts);
+        
+    }
+
+    function sendSelectedProductsToController(selectedProducts) {
+        // Gửi danh sách selectedProducts qua controller thông qua Ajax
+        $.ajax({
+            url: '/update-selected-products',
+            type: 'POST',
+            data: { selectedProducts: selectedProducts },
+            success: function (response) {
+                var carttotal = response.cart.total;
+
+                $('.cart-total strong').text('$' + carttotal.toFixed(2));
+                $('.total strong').text('$' + carttotal.toFixed(2));
+                console.log('Danh sách sản phẩm được cập nhật thành công.');
+            },
+            error: function (xhr, status, error) {
+                console.error('Đã xảy ra lỗi: ', error);
+            }
+        });
+    }
+    function sendNotSelectedProductsToController(notSelectedProducts) {
+        // Gửi danh sách selectedProducts qua controller thông qua Ajax
+        $.ajax({
+            url: '/update-notSelected-products',
+            type: 'POST',
+            data: { notSelectedProducts: notSelectedProducts },
+            success: function (response) {
+                var carttotal = response.cart.total;
+
+                $('.cart-total strong').text('$' + carttotal.toFixed(2));
+                $('.total strong').text('$' + carttotal.toFixed(2));
+                console.log('Danh sách sản phẩm được cập nhật thành công.');
+            },
+            error: function (xhr, status, error) {
+                console.error('Đã xảy ra lỗi: ', error);
+            }
+        });
+    }
+</script>
+
+<style>
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* Căn giữa nội dung trong input */
+    input[type=number] {
+        text-align: center;
+    }
+    .spacer-row {
+        height: 30px; /* Chiều cao của hàng trống */
+    }
+    .product-thumbnail{
+        width: 100px;
+    }
+    /* Định dạng ảnh sản phẩm */
+    .product-thumbnail img {
+        max-width: 100%; /* Kích thước tối đa của ảnh */
+        height: auto; /* Giữ tỉ lệ khung hình */
+        border-radius: 5px; /* Bo tròn góc ảnh */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Đổ bóng cho ảnh */
+    }
+
+    /* Định dạng tiêu đề cột */
+    .table th {
+        font-weight: bold; /* Đậm */
+    }
+
+    /* Định dạng nút Xóa */
+    .product-remove a {
+        color: #fff; /* Màu chữ */
+        background-color: #ff0000; /* Màu nền */
+        border: none; /* Không viền */
+        border-radius: 50%; /* Bo tròn góc */
+        width: 30px; /* Độ rộng */
+        height: 30px; /* Độ cao */
+        text-align: center; /* Căn giữa theo chiều ngang */
+    }
+
+    /* Định dạng các nút action */
+    .cart-buttons .btn {
+        border-radius: 20px; /* Bo tròn góc nút */
+    }
+
+    /* Định dạng input nhập mã giảm giá */
+    #coupon {
+        border-radius: 20px; /* Bo tròn góc input */
+    }
+
+    /* Định dạng nút Apply Coupon */
+    #apply-coupon-btn {
+        border-radius: 20px; /* Bo tròn góc nút */
+    }
+
+    /* Định dạng nút Proceed To Checkout */
+    #checkout-btn {
+        border-radius: 20px; /* Bo tròn góc nút */
+    }
+
+    /* Định dạng phần input group */
+    .product-quantity{
+        
+    }
+
+    /* Định dạng phần input group */
+    .quantity-container {
+        width: 100px; /* Độ rộng của input group */
+    }
+
+    /* Định dạng input số lượng */
+    .quantity-amount {
+        width: calc(100% - 60px); /* Độ rộng */
+        text-align: center; /* Căn giữa nội dung */
+        border-radius: 0; /* Bỏ bo góc */
+        border-left: none; /* Loại bỏ viền bên trái */
+        border-right: none; /* Loại bỏ viền bên phải */
+    }
+
+    /* Định dạng nút trừ */
+    .decrease,
+    .increase {
+        width: 30px; /* Độ rộng */
+        height: 30px; /* Độ cao */
+        line-height: 30px; /* Căn giữa theo chiều dọc */
+        text-align: center; /* Căn giữa theo chiều ngang */
+        font-size: 18px; /* Kích thước chữ */
+    }
+
+    /* Loại bỏ padding của thẻ td */
+    .table td {
+        padding: 0;
+    }
+   
+    .site-blocks-table .product-thumbnail {
+        width: 200px;
+    }
+
+    .table thead th {
+        padding: 30px;
+        text-align: center;
+        border-width: 0px !important;
+        vertical-align: middle;
+        color: rgba(0, 0, 0, 0.8);
+        font-size: 18px;
+    }
+    
+    .cart{
+        background: #eff2f1;
+    }
+
+    .product-quantity,
+    .product-name,
+    .product-price,
+    .product-total,
+    .product-remove {
+        text-align: center;
+    }
+
+    .btn-black {
+        font-weight: 600;
+        padding: 12px 30px;
+        border-radius: 30px;
+        color: #ffffff;
+        background: #2f2f2f;
+        border-color: #2f2f2f;
+    }
+
+    .btn-black:hover{
+        opacity:0.8;
+        color: white;
+    }
+
+    .btn-group-sm > .btn, .btn-sm {
+        padding: 0.25rem 0.5rem;
+        font-size: .875rem;
+        border-radius: 0.2rem;
+    }
+    /* Định dạng nút "Update Cart" và "Continue Shopping" */
+    .btn-update-cart,
+    .btn-continue-shopping {
+        font-weight: 600;
+        padding: 10px 30px;
+        border-radius: 30px;
+        color: #ffffff;
+        background: #2f2f2f;
+        border-color: #2f2f2f;
+        border-radius: 30px;
+    }
+
+    .btn-continue-shopping:hover {
+        opacity: 0.8;
+        color: white;
+    }
+    /* Định dạng phần chọn */
+    .product-choose {
+        text-align: center; /* Căn giữa nội dung */
+    }
+
+    .product-choose input[type="checkbox"]:hover {
+        cursor:pointer; /* Căn giữa nội dung */
+    }
+
+    .product-choose input[type="checkbox"] {
+        width: 20px; /* Độ rộng */
+        height: 20px; /* Độ cao */
+        margin: 0 auto; /* Căn giữa theo chiều ngang */
+        border-radius: 3px; /* Bo tròn góc */
+    }
+</style>

@@ -1,0 +1,385 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\GauShop.bundle.scp.css",
+      "PackagePath": "staticwebassets\\GauShop.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\css\\bootstrap-icons.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap-icons.css"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\css\\slick.css",
+      "PackagePath": "staticwebassets\\css\\slick.css"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\css\\tooplate-little-fashion.css",
+      "PackagePath": "staticwebassets\\css\\tooplate-little-fashion.css"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\fonts\\bootstrap-icons.woff",
+      "PackagePath": "staticwebassets\\fonts\\bootstrap-icons.woff"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\fonts\\bootstrap-icons.woff2",
+      "PackagePath": "staticwebassets\\fonts\\bootstrap-icons.woff2"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\images\\akita.jpg",
+      "PackagePath": "staticwebassets\\images\\akita.jpg"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\images\\cody-lannom-G95AReIh_Ko-unsplash.jpeg",
+      "PackagePath": "staticwebassets\\images\\cody-lannom-G95AReIh_Ko-unsplash.jpeg"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\images\\header\\businesspeople-meeting-office-working.jpg",
+      "PackagePath": "staticwebassets\\images\\header\\businesspeople-meeting-office-working.jpg"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\images\\header\\positive-european-woman-has-break-after-work.jpg",
+      "PackagePath": "staticwebassets\\images\\header\\positive-european-woman-has-break-after-work.jpg"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\images\\people\\beautiful-woman-face-portrait-brown-background.jpeg",
+      "PackagePath": "staticwebassets\\images\\people\\beautiful-woman-face-portrait-brown-background.jpeg"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\images\\people\\portrait-british-woman.jpeg",
+      "PackagePath": "staticwebassets\\images\\people\\portrait-british-woman.jpeg"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\images\\people\\senior-man-wearing-white-face-mask-covid-19-campaign-with-design-space.jpeg",
+      "PackagePath": "staticwebassets\\images\\people\\senior-man-wearing-white-face-mask-covid-19-campaign-with-design-space.jpeg"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\images\\people\\woman-wearing-mask-face-closeup-covid-19-green-background.jpeg",
+      "PackagePath": "staticwebassets\\images\\people\\woman-wearing-mask-face-closeup-covid-19-green-background.jpeg"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\images\\pim-chu-z6NZ76_UTDI-unsplash.jpeg",
+      "PackagePath": "staticwebassets\\images\\pim-chu-z6NZ76_UTDI-unsplash.jpeg"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\images\\product\\anis-m-WnVrO-DvxcE-unsplash.jpeg",
+      "PackagePath": "staticwebassets\\images\\product\\anis-m-WnVrO-DvxcE-unsplash.jpeg"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\images\\product\\evan-mcdougall-qnh1odlqOmk-unsplash.jpeg",
+      "PackagePath": "staticwebassets\\images\\product\\evan-mcdougall-qnh1odlqOmk-unsplash.jpeg"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\images\\product\\jordan-nix-CkCUvwMXAac-unsplash.jpeg",
+      "PackagePath": "staticwebassets\\images\\product\\jordan-nix-CkCUvwMXAac-unsplash.jpeg"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\images\\product\\nature-zen-3Dn1BZZv3m8-unsplash.jpeg",
+      "PackagePath": "staticwebassets\\images\\product\\nature-zen-3Dn1BZZv3m8-unsplash.jpeg"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\images\\product\\quokkabottles-kFc1_G1GvKA-unsplash.jpeg",
+      "PackagePath": "staticwebassets\\images\\product\\quokkabottles-kFc1_G1GvKA-unsplash.jpeg"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\images\\product\\team-fredi-8HRKoay8VJE-unsplash.jpeg",
+      "PackagePath": "staticwebassets\\images\\product\\team-fredi-8HRKoay8VJE-unsplash.jpeg"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\images\\retail-shop-owner-mask-social-distancing-shopping.jpg",
+      "PackagePath": "staticwebassets\\images\\retail-shop-owner-mask-social-distancing-shopping.jpg"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\images\\servicescape-incorporated-_48JSlVLX6g-unsplash.jpeg",
+      "PackagePath": "staticwebassets\\images\\servicescape-incorporated-_48JSlVLX6g-unsplash.jpeg"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\images\\slideshow\\medium-shot-business-women-high-five.jpeg",
+      "PackagePath": "staticwebassets\\images\\slideshow\\medium-shot-business-women-high-five.jpeg"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\images\\slideshow\\team-meeting-renewable-energy-project.jpeg",
+      "PackagePath": "staticwebassets\\images\\slideshow\\team-meeting-renewable-energy-project.jpeg"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\images\\slideshow\\two-business-partners-working-together-office-computer.jpeg",
+      "PackagePath": "staticwebassets\\images\\slideshow\\two-business-partners-working-together-office-computer.jpeg"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\js\\Headroom.js",
+      "PackagePath": "staticwebassets\\js\\Headroom.js"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\js\\calculateDistance.js",
+      "PackagePath": "staticwebassets\\js\\calculateDistance.js"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\js\\custom.js",
+      "PackagePath": "staticwebassets\\js\\custom.js"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\js\\jQuery.headroom.js",
+      "PackagePath": "staticwebassets\\js\\jQuery.headroom.js"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\js\\jquery.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\js\\slick.min.js",
+      "PackagePath": "staticwebassets\\js\\slick.min.js"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\.Net\\GauFashion\\GauShop\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.GauShop.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.GauShop.props",
+      "PackagePath": "build\\GauShop.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.GauShop.props",
+      "PackagePath": "buildMultiTargeting\\GauShop.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.GauShop.props",
+      "PackagePath": "buildTransitive\\GauShop.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

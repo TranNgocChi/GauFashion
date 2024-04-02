@@ -1,0 +1,102 @@
+﻿@using BusinessObject.Models;
+
+@model BusinessObject.HomeViewModel.HomeModel;
+
+@{
+    var x = Model.sessionId;
+    List<Product> popularProducts = Model.products.FindAll(p => p.featured.Contains("Trend"));
+    List<Product> newProducts = Model.products.Except(popularProducts).ToList();
+}
+
+<header class="site-header section-padding d-flex justify-content-center align-items-center">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-10 col-12">
+                <h1>
+                    <span class="d-block text-primary">Choose your</span>
+                    <span class="d-block text-dark">favorite stuffs</span>
+                </h1>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="products section-padding">
+    <div class="container">
+        <div class="row">
+            @if (Model.products != null)
+            {
+                <div class="col-12">
+                    <h2 class="mb-5">New Arrivals</h2>
+                </div>
+                @foreach (var p in newProducts)
+                {
+                    <div class="col-lg-4 col-12 mb-3">
+                        <div class="product-thumb">
+                            <a asp-action="ViewProductDetail" asp-controller="Product" asp-route-id="@p.id">
+                                <img src="~/@p.image" class="img-fluid product-image" alt="">
+                            </a>
+
+                            <div class="product-top d-flex">
+                                <span class="product-alert me-auto">@p.featured</span>
+
+                                <a href="#" class="bi-heart-fill product-icon"></a>
+                            </div>
+
+                            <div class="product-info d-flex">
+                                <div>
+                                    <h5 class="product-title mb-0">
+                                        <a asp-action="ViewProductDetail" asp-controller="Product" asp-route-id="@p.id" class="product-title-link">@p.name</a>
+                                    </h5>
+
+                                    <p class="product-p">@p.type</p>
+                                </div>
+
+                                <small class="product-price text-muted ms-auto">@p.price$</small>
+                            </div>
+                        </div>
+                    </div>
+                }
+                    
+                <div class="col-12">
+                    <h2 class="mb-5">Popular</h2>
+                </div>
+                @foreach(var p in popularProducts)
+                {
+                <div class="col-lg-4 col-12 mb-3">
+                    <div class="product-thumb">
+                        <a asp-action="ViewProductDetail" asp-controller="Product" asp-route-id="@p.id">
+                            <img src="~/@p.image" class="img-fluid product-image" alt="">
+                        </a>
+
+                        <div class="product-top d-flex">
+                            <span class="product-alert">@p.featured</span>
+
+                            <a href="#" class="bi-heart-fill product-icon ms-auto"></a>
+                        </div>
+
+                        <div class="product-info d-flex">
+                            <div>
+                                <h5 class="product-title mb-0">
+                                    <a asp-action="ViewProductDetail" asp-controller="Product" asp-route-id="@p.id" class="product-title-link">@p.name</a>
+                                </h5>
+
+                                <p class="product-p">@p.type</p>
+                            </div>
+
+                            <small class="product-price text-muted ms-auto">@p.price$</small>
+                        </div>
+                    </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <h2 style="color: red;">Don't have any products!</h2>
+            }
+        </div>
+    </div>
+</section>
+
+
